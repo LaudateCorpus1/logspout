@@ -1,7 +1,7 @@
 FROM bountylabs/docker-alpine
 MAINTAINER Jeff Lindsay <progrium@gmail.com>
 
-ADD ./stage/logspout /bin/logspout
+ADD ./logspout /bin/logspout
 
 ENV DOCKER_HOST unix:///tmp/docker.sock
 ENV ROUTESPATH /mnt/routes

@@ -13,6 +13,7 @@ dev:
 		$(NAME):dev
 
 build:
+	go build .
 	docker build -t bountylabs/progrium_logspout:latest .
 
 release:
