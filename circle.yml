@@ -18,4 +18,5 @@ deployment:
   release:
     branch: master
     commands:
+      - docker login --email="$DOCKER_EMAIL" --password="$DOCKER_PASSWORD" --username="$DOCKER_USERNAME"
       - make release
