@@ -14,7 +14,7 @@ dev:
 
 build:
 	go get github.com/tools/godep
-	godep go build .
+	CGO_ENABLED=0 godep go build -a --installsuffix cgo --ldflags='-extldflags=-static'
 	docker build -t bountylabs/progrium_logspout:latest .
 
 release:
