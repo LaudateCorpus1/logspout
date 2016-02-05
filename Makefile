@@ -13,8 +13,8 @@ dev:
 		$(NAME):dev
 
 build:
-	go get ./...
-	go build .
+	go get github.com/tools/godep
+	godep go build .
 	docker build -t bountylabs/progrium_logspout:latest .
 
 release:

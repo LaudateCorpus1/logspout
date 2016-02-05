@@ -1,0 +1,33 @@
+{
+	"ImportPath": "github.com/bountylabs/logspout",
+	"GoVersion": "go1.5",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "code.google.com/p/go.net/websocket",
+			"Comment": "null-240",
+			"Rev": "937a34c9de13c766c814510f76bca091dee06028"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/inject",
+			"Comment": "v1.0-rc1-10-g33e0aa1",
+			"Rev": "33e0aa1cb7c019ccc3fbe049a8262a6403d30504"
+		},
+		{
+			"ImportPath": "github.com/fsouza/go-dockerclient",
+			"Comment": "0.2.1-719-gaf9789b",
+			"Rev": "af9789bbd78acf3e279274caa54682185eb7ed33"
+		},
+		{
+			"ImportPath": "github.com/go-martini/martini",
+			"Comment": "v1.0-171-gc8e367e",
+			"Rev": "c8e367e964da242333b34f0cc2b01b91e16fa52a"
+		},
+		{
+			"ImportPath": "github.com/ziutek/syslog",
+			"Rev": "0e395dffb67b1423a648cba4031fc13b4d866b6b"
+		}
+	]
+}
