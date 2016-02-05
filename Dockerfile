@@ -1,4 +1,4 @@
-FROM flynn/busybox
+FROM bountylabs/docker-alpine
 MAINTAINER Jeff Lindsay <progrium@gmail.com>
 
 ADD ./stage/logspout /bin/logspout
