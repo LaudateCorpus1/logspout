@@ -14,11 +14,10 @@ dev:
 
 build:
 	mkdir -p build
-	docker build -t $(NAME):$(VERSION) .
-	docker save $(NAME):$(VERSION) | gzip -9 > build/$(NAME)_$(VERSION).tgz
+	docker build -t bountylabs/progrium_logspout:latest .
 
 release:
-	docker push bountylabs/progrium_logspout
+	docker push bountylabs/progrium_logspout:latest
 
 circleci:
 	rm ~/.gitconfig
