@@ -18,7 +18,7 @@ build:
 	docker save $(NAME):$(VERSION) | gzip -9 > build/$(NAME)_$(VERSION).tgz
 
 release:
-	docker push bountylabs/progmorium_logspout
+	docker push bountylabs/progrium_logspout
 
 circleci:
 	rm ~/.gitconfig
