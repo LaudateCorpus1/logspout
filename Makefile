@@ -1,18 +1,29 @@
-build/container: stage/logspout Dockerfile
-	docker build --no-cache -t logspout .
-	touch build/container
+NAME=logspout
+VERSION=$(shell cat VERSION)
 
-build/logspout: *.go
-	GOOS=linux GOARCH=amd64 go build -o build/logspout
+dev:
+	@docker history $(NAME):dev &> /dev/null \
+		|| docker build -f Dockerfile.dev -t $(NAME):dev .
+	@docker run --rm \
+		-e DEBUG=true \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		-v $(PWD):/go/src/github.com/bountylabs/logspout \
+		-p 8000:80 \
+		-e ROUTE_URIS=$(ROUTE) \
+		$(NAME):dev
 
-stage/logspout: build/logspout
-	mkdir -p stage
-	cp build/logspout stage/logspout
+build:
+	mkdir -p build
+	docker build -t $(NAME):$(VERSION) .
+	docker save $(NAME):$(VERSION) | gzip -9 > build/$(NAME)_$(VERSION).tgz
 
 release:
-	docker tag logspout progrium/logspout
-	docker push progrium/logspout
+	docker push bountylabs/progmorium_logspout
 
-.PHONY: clean
-clean:
-	rm -rf build
+circleci:
+	rm ~/.gitconfig
+ifneq ($(CIRCLE_BRANCH), master)
+	echo build-$$CIRCLE_BUILD_NUM > VERSION
+endif
+
+.PHONY: release
