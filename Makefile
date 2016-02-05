@@ -13,7 +13,6 @@ dev:
 		$(NAME):dev
 
 build:
-	mkdir -p build
 	docker build -t bountylabs/progrium_logspout:latest .
 
 release:
